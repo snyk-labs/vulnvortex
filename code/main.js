@@ -806,24 +806,6 @@ scene('credits-0', () => {
   wait(1, () => {
     focus()
     add([  
-      text('press space to begin', {
-        size: 28,
-        font: 'apl386'
-      }),
-      pos(width()/2, height()/2),
-      anchor('center')
-    ]);
-  })
-
-  onKeyPress('space', () => {
-    gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.7})
-    go('credits-1')
-  })
-})
-
-scene('credits-1', () => {
-  wait(4, () => {
-    add([  
       text('a Snyk production', {
         size: 28,
         font: 'apl386'
@@ -831,9 +813,7 @@ scene('credits-1', () => {
       pos(width()/2, height()/2),
       anchor('center')
     ]);
-  })
 
-  wait(7, () => {
     add([
       pos(width()/2, (height() - (height()*0.4))),
       sprite("dog-doberman", {anim: 'idle'}),
@@ -845,70 +825,71 @@ scene('credits-1', () => {
     ])
   })
 
-  wait(13, () => {
-    go('intro-1')
-  })
-})
-
-scene('intro-1', () => {
-  wait(0, () => {
-    add([
-        text('Dependency Frost', {
-          size: 38,
-          font: 'apl386'
-        }),
-        pos(width()/2, height()/4),
-        anchor('center')
-      ]);
-  })
-
-  wait(3, () => {
-    add([
-        text('\n\n\n\nYou are patch, the dog', {
-          size: 28,
-          font: 'apl386'
-        }),
-        pos(width()/2, height()/2),
-        anchor('center')
-      ]);
-  })
-
-  wait(5, () => {
-    add([
-        text('\n\n\n\n\n\nYour mission is to avoid vulnerable package versions', {
-          size: 28,
-          font: 'apl386'
-        }),
-        pos(width()/2, height()/2),
-        anchor('center')
-      ]);
-  })
-
-  wait(7, () => {
-    add([
-        text('\n\n\n\n\n\n\n\nCollect super powers along your journey', {
-          size: 28,
-          font: 'apl386'
-        }),
-        pos(width()/2, height()/2),
-        anchor('center')
-      ]);
-  })
-
-  wait(9, () => {
-    add([
-      text('press space to continue', {
-        size: 22,
-        font: 'apl386'
-      }),
-      pos(width()/2, height() - (height()*0.1)),
-      anchor('center')
-    ]);
-  })
-  
   onKeyPress('space', () => {
+    gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.7})
     go('game');
-  });
+  })
 })
+
+// scene('intro-1', () => {
+//   wait(0, () => {
+//     add([
+//         text('Dependency Frost', {
+//           size: 38,
+//           font: 'apl386'
+//         }),
+//         pos(width()/2, height()/4),
+//         anchor('center')
+//       ]);
+//   })
+
+//   wait(3, () => {
+//     add([
+//         text('\n\n\n\nYou are patch, the dog', {
+//           size: 28,
+//           font: 'apl386'
+//         }),
+//         pos(width()/2, height()/2),
+//         anchor('center')
+//       ]);
+//   })
+
+//   wait(5, () => {
+//     add([
+//         text('\n\n\n\n\n\nYour mission is to avoid vulnerable package versions', {
+//           size: 28,
+//           font: 'apl386'
+//         }),
+//         pos(width()/2, height()/2),
+//         anchor('center')
+//       ]);
+//   })
+
+//   wait(7, () => {
+//     add([
+//         text('\n\n\n\n\n\n\n\nCollect super powers along your journey', {
+//           size: 28,
+//           font: 'apl386'
+//         }),
+//         pos(width()/2, height()/2),
+//         anchor('center')
+//       ]);
+//   })
+
+//   wait(9, () => {
+//     add([
+//       text('press space to continue', {
+//         size: 22,
+//         font: 'apl386'
+//       }),
+//       pos(width()/2, height() - (height()*0.1)),
+//       anchor('center')
+//     ]);
+//   })
+  
+//   onKeyPress('space', () => {
+//     go('game');
+//   });
+// })
 
 go('credits-0')
