@@ -715,7 +715,7 @@ scene("lose", ({packageInfo}) => {
   ])
 
   const btnKilledByVuln = add([
-    text(`you were killed by\nan unpatched [${vulnTitle}].orange\nsecurity vulnerability in [${vulnPackageName}].orange\nidentified as [${vulnCVE}].orange`, {
+    text(`you were killed by\nan unpatched [orange]${vulnTitle}[/orange]\nsecurity vulnerability in [orange]${vulnPackageName}[/orange]\nidentified as [orange]${vulnCVE}[/orange]`, {
       styles: {
         "orange": {
           color: rgb(249, 144, 72),
@@ -724,7 +724,7 @@ scene("lose", ({packageInfo}) => {
     }),
 		pos(width() / 2, 300),
     area({ cursor: "pointer", height: 250 }),
-		scale(0.3),
+		scale(0.7),
 		anchor("center"),
 	])
 
@@ -821,7 +821,6 @@ scene('credits-0', () => {
       area(),
       anchor('center'),
       scale(3),
-      // cleanup()
     ])
   })
 
