@@ -76,4 +76,5 @@ function copyDir(src, dest) {
 
 buildGame();
 copyDir("sprites", "public/sprites");
+copyDir("fonts", "public/fonts");
 copyDir("sounds", "public/sounds");

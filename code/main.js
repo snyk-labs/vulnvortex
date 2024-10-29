@@ -46,7 +46,7 @@ loadSprite("dog-doberman", "sprites/dog-doberman.png", {
   }
 });
 
-// https://opengameart.org/content/dog-run-stand-pee-6frames-46x27
+// official Snyk source
 loadSprite("dog", "sprites/dog_brown.png", {
   sliceX: 3,
   sliceY: 2,
