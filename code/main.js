@@ -317,7 +317,7 @@ scene("game", () => {
     pos(80, 40),
     area(),
     body(),
-    scale(1.8),
+    scale(1),
     "player",
   ])
   player.flipX = true
