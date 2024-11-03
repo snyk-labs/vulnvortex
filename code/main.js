@@ -14,7 +14,7 @@ kaplay({
   // background: [68, 28, 153],
   // snykcon purple dark
   // background: [36, 3, 58],
-  background: [33, 33, 76],
+  background: [9,5,45],
   scale: 1,
   canvas: document.getElementById('game'),
 })
@@ -23,6 +23,8 @@ loadFont("apl386", "/fonts/apl386.ttf");
 
 // graphics from https://opengameart.org/content/winter-platformer-game-tileset, license: CC0 public domain
 loadSprite("background", "sprites/BG.png")
+
+loadSprite("logo", "sprites/vuln-vortex-logo.png")
 
 // Work created by me
 loadPedit("npmbox", "sprites/npmbox-animated.pedit")
@@ -805,22 +807,22 @@ scene('credits-0', () => {
 
   wait(1, () => {
     focus()
-    add([  
-      text('a Snyk production', {
-        size: 28,
-        font: 'apl386'
-      }),
-      pos(width()/2, height()/2),
-      anchor('center')
-    ]);
+    // add([  
+    //   text('a Snyk production', {
+    //     size: 28,
+    //     font: 'apl386'
+    //   }),
+    //   pos(width()/2, height()/2),
+    //   anchor('center')
+    // ]);
 
     add([
-      pos(width()/2, (height() - (height()*0.4))),
-      sprite("dog-doberman", {anim: 'idle'}),
+      pos(width()/2, height()/2),
+      sprite("logo"),
       rotate(0),
       area(),
       anchor('center'),
-      scale(3),
+      scale(0.7),
     ])
   })
 
