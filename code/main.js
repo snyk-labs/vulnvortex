@@ -22,9 +22,9 @@ kaplay({
 loadFont("apl386", "/fonts/apl386.ttf");
 
 // graphics from https://opengameart.org/content/winter-platformer-game-tileset, license: CC0 public domain
-loadSprite("background", "sprites/BG.png")
+loadSprite("background", "sprites/bg-snyk-terrain.png")
 
-loadSprite("logo", "sprites/vuln-vortex-logo.png")
+loadSprite("logo", "sprites/vuln-vortex-logo.svg")
 
 // Work created by me
 loadPedit("npmbox", "sprites/npmbox-animated.pedit")
