@@ -807,14 +807,6 @@ scene('credits-0', () => {
 
   wait(1, () => {
     focus()
-    // add([  
-    //   text('a Snyk production', {
-    //     size: 28,
-    //     font: 'apl386'
-    //   }),
-    //   pos(width()/2, height()/2),
-    //   anchor('center')
-    // ]);
 
     add([
       pos(width()/2, height()/2),
@@ -824,6 +816,15 @@ scene('credits-0', () => {
       anchor('center'),
       scale(0.7),
     ])
+
+      add([  
+      text('press [space] to continue', {
+        size: 12,
+        font: 'apl386'
+      }),
+      pos(width()/2, height()/2 + 150),
+      anchor('center')
+    ]);
   })
 
   onKeyPress('space', () => {
