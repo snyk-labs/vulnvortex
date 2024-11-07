@@ -31,8 +31,12 @@ loadPedit("npmbox", "sprites/npmbox-animated.pedit")
 loadPedit("npmbox-dev", "sprites/npmbox-dev.pedit");
 loadPedit("rail", "sprites/rail.pedit")
 loadPedit("rail2", "sprites/rail.pedit")
-loadPedit("Patch-Jumper", "sprites/Patch-Jumper.pedit")
-loadPedit("Mode-protected", "sprites/Mode-protected.pedit");
+
+// loadPedit("Patch-Jumper", "sprites/Patch-Jumper.pedit")
+loadSprite("Patch-Jumper", "sprites/power-up.png")
+// loadPedit("Mode-protected", "sprites/Mode-protected.pedit");
+loadSprite("Mode-protected", "sprites/protected.png");
+
 loadPedit("Mode-filterdevs", "sprites/Mode-filterdevs.pedit");
 
 // graphics from craftpix.net, license: https://craftpix.net/file-licenses/ (see freebie products section)
@@ -484,7 +488,7 @@ scene("game", () => {
           "Mode-protected",
           fixed(),
           body({ isStatic: true }),
-          scale(2.5),
+          scale(0.7),
           body()
         ])
       }
@@ -593,7 +597,7 @@ scene("game", () => {
           "Patch-Jumper",
           fixed(),
           body({ isStatic: true }),
-          scale(1)
+          scale(0.5)
         ])
       }
     }
