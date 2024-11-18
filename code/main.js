@@ -19,12 +19,14 @@ kaplay({
   canvas: document.getElementById('game'),
 })
 
-loadFont("apl386", "/fonts/apl386.ttf");
+loadFont("apl386", "/fonts/VCR_OSD_MONO_1001.ttf");
+//loadFont("apl386", "/fonts/apl386.ttf");
 
 // graphics from https://opengameart.org/content/winter-platformer-game-tileset, license: CC0 public domain
 loadSprite("background", "sprites/bg-snyk-terrain.png")
 
-loadSprite("logo", "sprites/vuln-vortex-logo.svg")
+loadSprite("logo", "sprites/vuln-vortex-logo-start.svg")
+//loadSprite("logo", "sprites/vuln-vortex-logo.svg")
 
 // Work created by me
 loadPedit("npmbox", "sprites/npmbox-animated.pedit")
@@ -820,15 +822,15 @@ scene('credits-0', () => {
       rotate(0),
       area(),
       anchor('center'),
-      scale(0.7),
+      scale(1),
     ])
 
-      add([  
-      text('press [space] to continue', {
-        size: 12,
+    add([  
+      text('PRESS SPACE TO START', {
+        size: 18,
         font: 'apl386'
       }),
-      pos(width()/2, height()/2 + 150),
+      pos(width()/2, height()/2 + 200),
       anchor('center')
     ]);
   })
