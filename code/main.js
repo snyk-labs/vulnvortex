@@ -5,6 +5,9 @@ import "kaplay/global";
 let highScore = localStorage.getItem("highScore") || 0
 localStorage.setItem("highScore", highScore)
 
+SNYK_COLOR_PURPLE = [229, 85, 172];
+SNYK_COLOR_ORANGE = [249, 144, 72];
+
 // initialize context
 kaplay({
   crisp: true,
@@ -22,8 +25,9 @@ kaplay({
 loadFont("apl386", "/fonts/VCR_OSD_MONO_1001.ttf");
 //loadFont("apl386", "/fonts/apl386.ttf");
 
-// graphics from https://opengameart.org/content/winter-platformer-game-tileset, license: CC0 public domain
 loadSprite("background", "sprites/bg-snyk-terrain.png")
+
+loadSprite("background-menu", "sprites/bg-snyk-menu.png")
 
 loadSprite("logo", "sprites/vuln-vortex-logo-start.svg")
 //loadSprite("logo", "sprites/vuln-vortex-logo.svg")
@@ -292,11 +296,11 @@ scene("game", () => {
   // define gravity
 	setGravity(2400)
 
-  // add christmas background!
+  // add Snyk background
   add([
     sprite("background"),
     pos(0, 0),
-    scale(0.9)
+    scale(1)
   ])
 
   const scoreLabel = add([
@@ -691,6 +695,14 @@ scene("lose", ({packageInfo}) => {
   gameMusic.stop()
   gameMusicIntro.play()
   
+  // add Snyk background
+  add([
+    sprite("background-menu"),
+    pos(0, 0),
+    scale(0.4)
+  ])
+  
+
   add([
 		text("GAME OVER"),
 		// pos(width() / 2, (height() / 8)),
@@ -810,6 +822,14 @@ scene("lose", ({packageInfo}) => {
 })
 
 scene('credits-0', () => {
+
+  // add Snyk background
+  add([
+    sprite("background-menu"),
+    pos(0, 0),
+    scale(0.4)
+  ])
+
   gameMusic.stop()
   soundThunder.stop()
 
@@ -817,7 +837,7 @@ scene('credits-0', () => {
     focus()
 
     add([
-      pos(width()/2, height()/2),
+      pos(width()/2, height()/2 - 100),
       sprite("logo"),
       rotate(0),
       area(),
@@ -825,21 +845,54 @@ scene('credits-0', () => {
       scale(1),
     ])
 
-    add([  
-      text('PRESS SPACE TO START', {
-        size: 18,
-        font: 'apl386'
-      }),
-      pos(width()/2, height()/2 + 200),
-      anchor('center')
+    const txt = 'PRESS SPACE TO START'
+    const btn = add([
+      rect(250, 55, { fill: false }),
+      // pos(p),
+      pos(width()/2, height()/2 + 180),
+      area(),
+      scale(1),
+      anchor("center"),
+      outline(2, rgb(...SNYK_COLOR_PURPLE)),
+      color(...SNYK_COLOR_PURPLE),
     ]);
+
+    // add a child object that displays the text
+    btn.add([
+        text(txt, {
+          size: 16,
+          // font: 'apl386',
+        }),
+        anchor("center"),
+        color(255, 255, 255),
+    ]);
+
+    btn.onHoverUpdate(() => {
+      const t = time() * 10;
+      btn.outline = { width: 2, color: rgb(wave(0, 255, t), wave(0, 255, t + 2), wave(0, 255, t + 4)) };
+      // btn.scale = vec2(1.2);
+      setCursor("pointer");
+  });
+
+    btn.onHoverEnd(() => {
+        // btn.scale = vec2(1);
+        btn.outline = { width: 2, color: rgb(...SNYK_COLOR_PURPLE) };
+    });
+
+    btn.onClick(startGame);
+
   })
 
   onKeyPress('space', () => {
-    gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.7})
-    go('game');
+    startGame();
   })
 })
+
+function startGame() {
+  gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.7})
+  go('game');
+}
+
 
 // scene('intro-1', () => {
 //   wait(0, () => {
