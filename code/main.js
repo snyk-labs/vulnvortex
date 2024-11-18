@@ -34,10 +34,12 @@ loadPedit("rail2", "sprites/rail.pedit")
 
 // loadPedit("Patch-Jumper", "sprites/Patch-Jumper.pedit")
 loadSprite("Patch-Jumper", "sprites/power-up.png")
+
 // loadPedit("Mode-protected", "sprites/Mode-protected.pedit");
 loadSprite("Mode-protected", "sprites/protected.png");
 
-loadPedit("Mode-filterdevs", "sprites/Mode-filterdevs.pedit");
+loadSprite("Mode-filterdevs", "sprites/ai-fix.png");
+// loadPedit("Mode-filterdevs", "sprites/Mode-filterdevs.pedit");
 
 // graphics from craftpix.net, license: https://craftpix.net/file-licenses/ (see freebie products section)
 loadSprite("dog-doberman", "sprites/dog-doberman.png", {
