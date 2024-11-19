@@ -22,8 +22,9 @@ kaplay({
   canvas: document.getElementById('game'),
 })
 
-loadFont("apl386", "/fonts/VCR_OSD_MONO_1001.ttf");
-//loadFont("apl386", "/fonts/apl386.ttf");
+// loadFont("apl386", "/fonts/VCR_OSD_MONO_1001.ttf");
+loadFont("apl386", "/fonts/apl386.ttf");
+loadFont('jersey', '/fonts/Jersey10-Regular.ttf');
 
 loadSprite("background", "sprites/bg-snyk-terrain.png")
 
@@ -702,16 +703,24 @@ scene("lose", ({packageInfo}) => {
     scale(0.4)
   ])
   
+  add([
+    pos(width()/2, 80),
+    sprite("logo"),
+    rotate(0),
+    area(),
+    anchor('center'),
+    scale(0.2),
+  ])
 
+  const YPosStartText = 200
   add([
 		text("GAME OVER"),
-		// pos(width() / 2, (height() / 8)),
-    pos(width() / 2, 190),
-    scale(1.2),
+    pos(width() / 2, YPosStartText),
+    scale(1.3),
 		anchor("center"),
 	])
 
-  const vulnTitle = packageInfo.vulnerability
+  const vulnTitle = String(packageInfo.vulnerability).toUpperCase();
   const vulnCVE = packageInfo.cve
   const vulnPackageName = packageInfo.name
   const vulnURL = packageInfo.link
@@ -723,35 +732,38 @@ scene("lose", ({packageInfo}) => {
 
 	add([
 		text(`YOUR SCORE: ${score}`),
-		pos(width() / 2, 50),
+		pos(width() / 2, YPosStartText + 50),
 		scale(0.6),
 		anchor("center"),
+    color(...SNYK_COLOR_PURPLE)
 	])
 
   add([
     text(`HIGH SCORE: ${highScore}`),
-    pos(width() / 2, 110),
+    pos(width() / 2, YPosStartText + 80),
     scale(0.6),
     anchor("center"),
-    color(255, 63, 198),
+    color(...SNYK_COLOR_ORANGE)
   ])
 
   const btnKilledByVuln = add([
-    text(`you were killed by\nan unpatched [orange]${vulnTitle}[/orange]\nsecurity vulnerability in [orange]${vulnPackageName}[/orange]\nidentified as [orange]${vulnCVE}[/orange]`, {
+    text(`UH OH! A SECURITY VULNERABILITY TOOK YOU DOWN :(\n\nTHE SNYK VULNERABILITY DATABASE HELP TEAMS\nSTAY AHEAD OF RISKS LIKE [orange]${vulnTitle}[/orange]\nWITH REAL TIME DATA AND INSIGHTS`, {
+      font: 'jersey',
+      align: 'center',
       styles: {
         "orange": {
-          color: rgb(249, 144, 72),
+          color: rgb(...SNYK_COLOR_ORANGE),
         },
       }
     }),
-		pos(width() / 2, 300),
+		pos(width() / 2, YPosStartText + 220),
     area({ cursor: "pointer", height: 250 }),
-		scale(0.7),
+		scale(1),
 		anchor("center"),
 	])
 
   add([
-		text('Media assets credit to: opengameart.org, craftpix.net and mixkit.co.'),
+		text('Media assets credit to: opengameart.org, mixkit.co.'),
 		pos(width() / 2, height() / 2 + 320),
 		scale(0.2),
 		anchor("center"),
@@ -763,61 +775,104 @@ scene("lose", ({packageInfo}) => {
   }
 
   const btnRestart = add([
-		text("Restart"),
-    pos(width() / 2, height() / 2 + 50),
-		area({ cursor: "pointer", }),
-		scale(0.5),
-		anchor("center"),
-    
-	])
+    rect(150, 55, { fill: false }),
+    pos((width()/2) - 110, YPosStartText + 400),
+    area(),
+    scale(1),
+    anchor("center"),
+    outline(2, rgb(...SNYK_COLOR_PURPLE)),
+    color(...SNYK_COLOR_PURPLE),
+  ]);
 
-  const btnLearnMore = add([
-		text("See vulnerability"),
-    pos(width() / 2, height() / 2 + 130),
-		area({ cursor: "pointer", }),
-		scale(0.5),
-		anchor("center"),
-    
-	])
+  // add a child object that displays the text
+  btnRestart.add([
+      text('RESTART GAME', {
+        size: 20,
+        font: 'jersey',
+      }),
+      anchor("center"),
+      color(255, 255, 255),
+  ]);
+
+  btnRestart.onClick(restartGame);
+
+  const btnSeeVulnerability = add([
+    rect(200, 55, { fill: false }),
+    pos((width()/2) + 90, YPosStartText + 400),
+    area(),
+    scale(1),
+    anchor("center"),
+    outline(2, rgb(...SNYK_COLOR_ORANGE)),
+    color(...SNYK_COLOR_ORANGE),
+  ]);
+
+  // add a child object that displays the text
+  btnSeeVulnerability.add([
+      text('OPEN VULNERABILITY', {
+        size: 20,
+        font: 'jersey',
+      }),
+      anchor("center"),
+      color(255, 255, 255),
+  ]);
+
+  btnSeeVulnerability.onClick(restartGame);
+
+
+  // const btnRestart = add([
+	// 	text("Restart"),
+  //   pos(width() / 2, height() / 2 + 50),
+	// 	area({ cursor: "pointer", }),
+	// 	scale(0.5),
+	// 	anchor("center"),
+	// ])
+
+  // const btnLearnMore = add([
+	// 	text("See vulnerability"),
+  //   pos(width() / 2, height() / 2 + 130),
+	// 	area({ cursor: "pointer", }),
+	// 	scale(0.5),
+	// 	anchor("center"),
+	// ])
 
   // --restart
-  btnRestart.onClick(restartGame)
-  btnRestart.onUpdate(() => {
-		if (btnRestart.isHovering()) {
-			const t = time() * 10
-			btnRestart.color = rgb(
-				wave(0, 255, t),
-				wave(0, 255, t + 2),
-				wave(0, 255, t + 4),
-			)
-			btnRestart.scale = vec2(1.2)
-		} else {
-			btnRestart.scale = vec2(1)
-			btnRestart.color = rgb(255, 63, 198)
-		}
-	})
+  // btnRestart.onClick(restartGame)
+  // btnRestart.onUpdate(() => {
+	// 	if (btnRestart.isHovering()) {
+	// 		const t = time() * 10
+	// 		btnRestart.color = rgb(
+	// 			wave(0, 255, t),
+	// 			wave(0, 255, t + 2),
+	// 			wave(0, 255, t + 4),
+	// 		)
+	// 		btnRestart.scale = vec2(1.2)
+	// 	} else {
+	// 		btnRestart.scale = vec2(1)
+	// 		btnRestart.color = rgb(255, 63, 198)
+	// 	}
+	// })
 
-  onKeyPress('space', restartGame)
+  // onKeyPress('space', restartGame)
 
-  // --see vulnerability
-  btnLearnMore.onClick(() => window.open(vulnURL, '_blank'))
-  btnLearnMore.onUpdate(() => {
-		if (btnLearnMore.isHovering()) {
-			const t = time() * 10
-			btnLearnMore.color = rgb(
-				wave(0, 255, t),
-				wave(0, 255, t + 2),
-				wave(0, 255, t + 4),
-			)
-			btnLearnMore.scale = vec2(1.2)
-		} else {
-			btnLearnMore.scale = vec2(1)
-			btnLearnMore.color = rgb(249, 144, 72)
-		}
-	})
+  // // --see vulnerability
+  // btnLearnMore.onClick(() => window.open(vulnURL, '_blank'))
+  // btnLearnMore.onUpdate(() => {
+	// 	if (btnLearnMore.isHovering()) {
+	// 		const t = time() * 10
+	// 		btnLearnMore.color = rgb(
+	// 			wave(0, 255, t),
+	// 			wave(0, 255, t + 2),
+	// 			wave(0, 255, t + 4),
+	// 		)
+	// 		btnLearnMore.scale = vec2(1.2)
+	// 	} else {
+	// 		btnLearnMore.scale = vec2(1)
+	// 		btnLearnMore.color = rgb(249, 144, 72)
+	// 	}
+	// })
 
-  // --killed by vuln
-  btnKilledByVuln.onClick(() => window.open(vulnURL, '_blank'))
+  // // --killed by vuln
+  // btnKilledByVuln.onClick(() => window.open(vulnURL, '_blank'))
 
 })
 
@@ -860,8 +915,8 @@ scene('credits-0', () => {
     // add a child object that displays the text
     btn.add([
         text(txt, {
-          size: 16,
-          // font: 'apl386',
+          size: 20,
+          font: 'jersey',
         }),
         anchor("center"),
         color(255, 255, 255),
@@ -892,6 +947,9 @@ function startGame() {
   gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.7})
   go('game');
 }
+
+
+go('credits-0')
 
 
 // scene('intro-1', () => {
@@ -954,5 +1012,3 @@ function startGame() {
 //     go('game');
 //   });
 // })
-
-go('credits-0')
