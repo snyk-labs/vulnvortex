@@ -18,14 +18,15 @@ kaplay({
   canvas: document.getElementById('game'),
 })
 
-// loadFont("apl386", "/fonts/VCR_OSD_MONO_1001.ttf");
 loadFont("apl386", "/fonts/apl386.ttf");
+// loadFont("jersey", "/fonts/VCR_OSD_MONO_1001.ttf");
 loadFont('jersey', '/fonts/Jersey10-Regular.ttf');
 
 loadSprite("background", "sprites/bg-snyk-terrain.png")
 
 loadSprite("background-menu", "sprites/bg-snyk-menu.png")
 
+loadSprite('logo2', 'sprites/vuln-vortex-logo.png')
 loadSprite("logo", "sprites/vuln-vortex-logo-start.svg")
 
 // Work created by me
@@ -683,8 +684,6 @@ scene("lose", ({packageInfo}) => {
   add([
     pos(width()/2, 80),
     sprite("logo"),
-    rotate(0),
-    area(),
     anchor('center'),
     scale(0.2),
   ])
