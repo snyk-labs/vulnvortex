@@ -31,7 +31,6 @@ loadSprite("background", "sprites/bg-snyk-terrain.png")
 loadSprite("background-menu", "sprites/bg-snyk-menu.png")
 
 loadSprite("logo", "sprites/vuln-vortex-logo-start.svg")
-//loadSprite("logo", "sprites/vuln-vortex-logo.svg")
 
 // Work created by me
 loadPedit("npmbox", "sprites/npmbox-animated.pedit")
@@ -39,27 +38,9 @@ loadPedit("npmbox-dev", "sprites/npmbox-dev.pedit");
 loadPedit("rail", "sprites/rail.pedit")
 loadPedit("rail2", "sprites/rail.pedit")
 
-// loadPedit("Patch-Jumper", "sprites/Patch-Jumper.pedit")
 loadSprite("Patch-Jumper", "sprites/power-up.png")
-
-// loadPedit("Mode-protected", "sprites/Mode-protected.pedit");
 loadSprite("Mode-protected", "sprites/protected.png");
-
 loadSprite("Mode-filterdevs", "sprites/ai-fix.png");
-// loadPedit("Mode-filterdevs", "sprites/Mode-filterdevs.pedit");
-
-// graphics from craftpix.net, license: https://craftpix.net/file-licenses/ (see freebie products section)
-loadSprite("dog-doberman", "sprites/dog-doberman.png", {
-  sliceX: 4,
-  sliceY: 1,
-  anims: {
-    idle: {
-      from: 0,
-      to: 3,
-      loop: true
-    }
-  }
-});
 
 // official Snyk source
 loadSprite("dog", "sprites/dog_brown.png", {
@@ -950,65 +931,3 @@ function startGame() {
 
 
 go('credits-0')
-
-
-// scene('intro-1', () => {
-//   wait(0, () => {
-//     add([
-//         text('Dependency Frost', {
-//           size: 38,
-//           font: 'apl386'
-//         }),
-//         pos(width()/2, height()/4),
-//         anchor('center')
-//       ]);
-//   })
-
-//   wait(3, () => {
-//     add([
-//         text('\n\n\n\nYou are patch, the dog', {
-//           size: 28,
-//           font: 'apl386'
-//         }),
-//         pos(width()/2, height()/2),
-//         anchor('center')
-//       ]);
-//   })
-
-//   wait(5, () => {
-//     add([
-//         text('\n\n\n\n\n\nYour mission is to avoid vulnerable package versions', {
-//           size: 28,
-//           font: 'apl386'
-//         }),
-//         pos(width()/2, height()/2),
-//         anchor('center')
-//       ]);
-//   })
-
-//   wait(7, () => {
-//     add([
-//         text('\n\n\n\n\n\n\n\nCollect super powers along your journey', {
-//           size: 28,
-//           font: 'apl386'
-//         }),
-//         pos(width()/2, height()/2),
-//         anchor('center')
-//       ]);
-//   })
-
-//   wait(9, () => {
-//     add([
-//       text('press space to continue', {
-//         size: 22,
-//         font: 'apl386'
-//       }),
-//       pos(width()/2, height() - (height()*0.1)),
-//       anchor('center')
-//     ]);
-//   })
-  
-//   onKeyPress('space', () => {
-//     go('game');
-//   });
-// })
