@@ -10,13 +10,9 @@ SNYK_COLOR_ORANGE = [249, 144, 72];
 
 // initialize context
 kaplay({
-  crisp: true,
+  crisp: false,
   width: 1080,
   height: 720,
-  // snyk purple dark
-  // background: [68, 28, 153],
-  // snykcon purple dark
-  // background: [36, 3, 58],
   background: [9,5,45],
   scale: 1,
   canvas: document.getElementById('game'),
