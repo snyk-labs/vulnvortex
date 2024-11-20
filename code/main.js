@@ -799,62 +799,9 @@ scene("lose", ({packageInfo}) => {
       color(255, 255, 255),
   ]);
 
-  btnSeeVulnerability.onClick(restartGame);
+  btnSeeVulnerability.onClick(() => window.open(vulnURL, '_blank'));
 
-  // const btnRestart = add([
-	// 	text("Restart"),
-  //   pos(width() / 2, height() / 2 + 50),
-	// 	area({ cursor: "pointer", }),
-	// 	scale(0.5),
-	// 	anchor("center"),
-	// ])
-
-  // const btnLearnMore = add([
-	// 	text("See vulnerability"),
-  //   pos(width() / 2, height() / 2 + 130),
-	// 	area({ cursor: "pointer", }),
-	// 	scale(0.5),
-	// 	anchor("center"),
-	// ])
-
-  // --restart
-  // btnRestart.onClick(restartGame)
-  // btnRestart.onUpdate(() => {
-	// 	if (btnRestart.isHovering()) {
-	// 		const t = time() * 10
-	// 		btnRestart.color = rgb(
-	// 			wave(0, 255, t),
-	// 			wave(0, 255, t + 2),
-	// 			wave(0, 255, t + 4),
-	// 		)
-	// 		btnRestart.scale = vec2(1.2)
-	// 	} else {
-	// 		btnRestart.scale = vec2(1)
-	// 		btnRestart.color = rgb(255, 63, 198)
-	// 	}
-	// })
-
-  // onKeyPress('space', restartGame)
-
-  // // --see vulnerability
-  // btnLearnMore.onClick(() => window.open(vulnURL, '_blank'))
-  // btnLearnMore.onUpdate(() => {
-	// 	if (btnLearnMore.isHovering()) {
-	// 		const t = time() * 10
-	// 		btnLearnMore.color = rgb(
-	// 			wave(0, 255, t),
-	// 			wave(0, 255, t + 2),
-	// 			wave(0, 255, t + 4),
-	// 		)
-	// 		btnLearnMore.scale = vec2(1.2)
-	// 	} else {
-	// 		btnLearnMore.scale = vec2(1)
-	// 		btnLearnMore.color = rgb(249, 144, 72)
-	// 	}
-	// })
-
-  // // --killed by vuln
-  // btnKilledByVuln.onClick(() => window.open(vulnURL, '_blank'))
+  onKeyPress('space', restartGame);
 
 })
 
