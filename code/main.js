@@ -25,7 +25,7 @@ loadSprite("background", "sprites/bg-snyk-terrain.png")
 
 loadSprite("background-menu", "sprites/bg-snyk-menu.png")
 
-loadSprite('logo2', 'sprites/vuln-vortex-logo.png')
+loadSprite('logo-small', 'sprites/vuln-vortex-logo.png')
 loadSprite("logo", "sprites/vuln-vortex-logo-start.svg")
 
 // Work created by me
@@ -684,9 +684,9 @@ scene("lose", ({packageInfo}) => {
   
   add([
     pos(width()/2, 80),
-    sprite("logo"),
+    sprite("logo-small"),
     anchor('center'),
-    scale(0.2),
+    scale(0.3)
   ])
 
   const YPosStartText = 200
@@ -731,7 +731,7 @@ scene("lose", ({packageInfo}) => {
     color(...SNYK_COLOR_ORANGE)
   ])
 
-  const btnKilledByVuln = add([
+  add([
     text(`UH OH! A SECURITY VULNERABILITY TOOK YOU DOWN :(\n\nTHE SNYK VULNERABILITY DATABASE HELP TEAMS\nSTAY AHEAD OF RISKS LIKE [orange]${vulnTitle}[/orange]\nWITH REAL TIME DATA AND INSIGHTS`, {
       font: 'jersey',
       size: 28,
