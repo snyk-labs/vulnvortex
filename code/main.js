@@ -19,7 +19,6 @@ kaplay({
 })
 
 loadFont("apl386", "/fonts/apl386.ttf");
-// loadFont("jersey", "/fonts/VCR_OSD_MONO_1001.ttf");
 loadFont('jersey', '/fonts/Jersey10-Regular.ttf');
 
 loadSprite("background", "sprites/bg-snyk-terrain.png")
@@ -283,7 +282,9 @@ scene("game", () => {
   ])
 
   const scoreLabel = add([
-    text(score),
+    text(score, {
+      font: 'jersey',
+    }),
     pos(24, 24),
     fixed()
   ])
@@ -652,7 +653,7 @@ scene("game", () => {
     
     
     add([
-      text(randomPackage.name, { size: '22', font: 'apl386' }),
+      text(randomPackage.name, { size: '22', font: 'jersey' }),
       move(LEFT, 240),
       anchor('botleft'),
       color(255, 255, 255),
@@ -690,9 +691,11 @@ scene("lose", ({packageInfo}) => {
 
   const YPosStartText = 200
   add([
-		text("GAME OVER"),
+		text("GAME OVER", {
+      size: 64,
+      font: 'jersey',
+    }),
     pos(width() / 2, YPosStartText),
-    scale(1.3),
 		anchor("center"),
 	])
 
@@ -707,17 +710,23 @@ scene("lose", ({packageInfo}) => {
   }
 
 	add([
-		text(`YOUR SCORE: ${score}`),
+		text(`YOUR SCORE: ${score}`, {
+      size: 36,
+      font: 'jersey',
+    }),
 		pos(width() / 2, YPosStartText + 50),
-		scale(0.6),
+		// scale(0.6),
 		anchor("center"),
     color(...SNYK_COLOR_PURPLE)
 	])
 
   add([
-    text(`HIGH SCORE: ${highScore}`),
+    text(`HIGH SCORE: ${highScore}`, {
+      size: 36,
+      font: 'jersey',
+    }),
     pos(width() / 2, YPosStartText + 80),
-    scale(0.6),
+    // scale(0.6),
     anchor("center"),
     color(...SNYK_COLOR_ORANGE)
   ])
@@ -725,6 +734,7 @@ scene("lose", ({packageInfo}) => {
   const btnKilledByVuln = add([
     text(`UH OH! A SECURITY VULNERABILITY TOOK YOU DOWN :(\n\nTHE SNYK VULNERABILITY DATABASE HELP TEAMS\nSTAY AHEAD OF RISKS LIKE [orange]${vulnTitle}[/orange]\nWITH REAL TIME DATA AND INSIGHTS`, {
       font: 'jersey',
+      size: 28,
       align: 'center',
       styles: {
         "orange": {
@@ -734,14 +744,13 @@ scene("lose", ({packageInfo}) => {
     }),
 		pos(width() / 2, YPosStartText + 220),
     area({ cursor: "pointer", height: 250 }),
-		scale(1),
+		// scale(1),
 		anchor("center"),
 	])
 
   add([
-		text('Media assets credit to: opengameart.org, mixkit.co.'),
+		text('Media assets credit to: opengameart.org, mixkit.co.', { font: 'jersey', size: 16 }),
 		pos(width() / 2, height() / 2 + 320),
-		scale(0.2),
 		anchor("center"),
 	])
 
@@ -754,7 +763,6 @@ scene("lose", ({packageInfo}) => {
     rect(150, 55, { fill: false }),
     pos((width()/2) - 110, YPosStartText + 400),
     area(),
-    scale(1),
     anchor("center"),
     outline(2, rgb(...SNYK_COLOR_PURPLE)),
     color(...SNYK_COLOR_PURPLE),
@@ -763,7 +771,7 @@ scene("lose", ({packageInfo}) => {
   // add a child object that displays the text
   btnRestart.add([
       text('RESTART GAME', {
-        size: 20,
+        size: 22,
         font: 'jersey',
       }),
       anchor("center"),
@@ -776,7 +784,6 @@ scene("lose", ({packageInfo}) => {
     rect(200, 55, { fill: false }),
     pos((width()/2) + 90, YPosStartText + 400),
     area(),
-    scale(1),
     anchor("center"),
     outline(2, rgb(...SNYK_COLOR_ORANGE)),
     color(...SNYK_COLOR_ORANGE),
@@ -785,7 +792,7 @@ scene("lose", ({packageInfo}) => {
   // add a child object that displays the text
   btnSeeVulnerability.add([
       text('OPEN VULNERABILITY', {
-        size: 20,
+        size: 22,
         font: 'jersey',
       }),
       anchor("center"),
@@ -793,7 +800,6 @@ scene("lose", ({packageInfo}) => {
   ]);
 
   btnSeeVulnerability.onClick(restartGame);
-
 
   // const btnRestart = add([
 	// 	text("Restart"),
