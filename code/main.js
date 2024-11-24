@@ -23,6 +23,9 @@ loadFont('jersey', '/fonts/Jersey10-Regular.ttf');
 
 loadSprite("background", "sprites/bg-snyk-terrain.png")
 
+loadSprite('share-linkedin', 'sprites/8bit-li.png')
+loadSprite('share-twitter', 'sprites/8bit-tw.png')
+
 loadSprite("background-menu", "sprites/bg-snyk-menu.png")
 
 loadSprite('logo-small', 'sprites/vuln-vortex-logo.png')
@@ -675,6 +678,8 @@ scene("lose", ({packageInfo}) => {
   gameMusic.stop()
   gameMusicIntro.play()
   
+  XPosStart = 80 * 3
+
   // add Snyk background
   add([
     sprite("background-menu"),
@@ -683,9 +688,8 @@ scene("lose", ({packageInfo}) => {
   ])
   
   add([
-    pos(width()/2, 80),
+    pos(XPosStart, 80),
     sprite("logo-small"),
-    anchor('center'),
     scale(0.3)
   ])
 
@@ -695,13 +699,12 @@ scene("lose", ({packageInfo}) => {
       size: 64,
       font: 'jersey',
     }),
-    pos(width() / 2, YPosStartText),
-		anchor("center"),
+    pos(XPosStart, YPosStartText),
 	])
 
-  const vulnTitle = String(packageInfo.vulnerability).toUpperCase();
+  const vulnTitle = String(packageInfo.vulnerability).toUpperCase()
   const vulnCVE = packageInfo.cve
-  const vulnPackageName = packageInfo.name
+  const vulnPackageName = packageInfo.name 
   const vulnURL = packageInfo.link
 
   if (score > parseInt(highScore)) {
@@ -714,9 +717,7 @@ scene("lose", ({packageInfo}) => {
       size: 36,
       font: 'jersey',
     }),
-		pos(width() / 2, YPosStartText + 50),
-		// scale(0.6),
-		anchor("center"),
+		pos(XPosStart, YPosStartText + 80),
     color(...SNYK_COLOR_PURPLE)
 	])
 
@@ -725,33 +726,68 @@ scene("lose", ({packageInfo}) => {
       size: 36,
       font: 'jersey',
     }),
-    pos(width() / 2, YPosStartText + 80),
-    // scale(0.6),
-    anchor("center"),
+    pos(XPosStart * 2, YPosStartText + 80),
     color(...SNYK_COLOR_ORANGE)
   ])
+
+  add([
+		text(`SHARE ON:`, {
+      size: 24,
+      font: 'jersey',
+    }),
+		pos(XPosStart, YPosStartText + 135),
+    color(200, 200, 200)
+	])
+
+  const btnShareLinkedIn = add([
+    pos(XPosStart + 90, YPosStartText + 122),
+    sprite("share-linkedin"),
+    area(),
+    scale(0.8)
+  ])
+
+  btnShareLinkedIn.onClick(() => {
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https://www.vulnvortex.com/`, '_blank');
+  });
+
+  const btnShareTwitter = add([
+    pos(XPosStart + 130, YPosStartText + 122),
+    sprite("share-twitter"),
+    area(),
+    scale(0.8)
+  ])
+
+  btnShareTwitter.onClick(() => {
+    window.open(`https://twitter.com/intent/tweet?text=I%20just%20scored%20${score}%20on%20Vuln%20Vortex%20game%20by%20@SnykSec%20%23vulnvortex%20%23snyk https://www.vulnvortex.com/`, '_blank');
+  });
+
+  add([
+		text(`------------------------------------------------------------`, {
+      size: 22,
+      font: 'jersey',
+    }),
+		pos(XPosStart, YPosStartText + 170),
+    color(180, 180, 180)
+	])
 
   add([
     text(`UH OH! A SECURITY VULNERABILITY TOOK YOU DOWN :(\n\nTHE SNYK VULNERABILITY DATABASE HELP TEAMS\nSTAY AHEAD OF RISKS LIKE [orange]${vulnTitle}[/orange]\nWITH REAL TIME DATA AND INSIGHTS`, {
       font: 'jersey',
       size: 28,
-      align: 'center',
+      // align: 'center',
       styles: {
         "orange": {
           color: rgb(...SNYK_COLOR_ORANGE),
         },
       }
     }),
-		pos(width() / 2, YPosStartText + 220),
+		pos(XPosStart, YPosStartText + 200),
     area({ cursor: "pointer", height: 250 }),
-		// scale(1),
-		anchor("center"),
 	])
 
   add([
 		text('Media assets credit to: opengameart.org, mixkit.co.', { font: 'jersey', size: 16 }),
-		pos(width() / 2, height() / 2 + 320),
-		anchor("center"),
+		pos(XPosStart, height() / 2 + 320),
 	])
 
   const restartGame = () => {
@@ -761,7 +797,7 @@ scene("lose", ({packageInfo}) => {
 
   const btnRestart = add([
     rect(150, 55, { fill: false }),
-    pos((width()/2) - 110, YPosStartText + 400),
+    pos(XPosStart + 80, YPosStartText + 400),
     area(),
     anchor("center"),
     outline(2, rgb(...SNYK_COLOR_PURPLE)),
@@ -782,7 +818,7 @@ scene("lose", ({packageInfo}) => {
 
   const btnSeeVulnerability = add([
     rect(200, 55, { fill: false }),
-    pos((width()/2) + 90, YPosStartText + 400),
+    pos(XPosStart + 290, YPosStartText + 400),
     area(),
     anchor("center"),
     outline(2, rgb(...SNYK_COLOR_ORANGE)),
@@ -817,59 +853,57 @@ scene('credits-0', () => {
   gameMusic.stop()
   soundThunder.stop()
 
-  wait(1, () => {
-    focus()
+  focus()
 
-    add([
-      pos(width()/2, height()/2 - 100),
-      sprite("logo"),
-      rotate(0),
-      area(),
-      anchor('center'),
-      scale(1),
-    ])
+  add([
+    pos(width()/2, height()/2 - 100),
+    sprite("logo"),
+    rotate(0),
+    area(),
+    anchor('center'),
+    scale(1),
+  ])
 
-    const txt = 'PRESS SPACE TO START'
-    const btn = add([
-      rect(250, 55, { fill: false }),
-      // pos(p),
-      pos(width()/2, height()/2 + 180),
-      area(),
-      scale(1),
+  const txt = 'PRESS SPACE TO START'
+  const btn = add([
+    rect(250, 55, { fill: false }),
+    // pos(p),
+    pos(width()/2, height()/2 + 180),
+    area(),
+    scale(1),
+    anchor("center"),
+    outline(2, rgb(...SNYK_COLOR_PURPLE)),
+    color(...SNYK_COLOR_PURPLE),
+  ]);
+
+  // add a child object that displays the text
+  btn.add([
+      text(txt, {
+        size: 20,
+        font: 'jersey',
+      }),
       anchor("center"),
-      outline(2, rgb(...SNYK_COLOR_PURPLE)),
-      color(...SNYK_COLOR_PURPLE),
-    ]);
+      color(255, 255, 255),
+  ]);
 
-    // add a child object that displays the text
-    btn.add([
-        text(txt, {
-          size: 20,
-          font: 'jersey',
-        }),
-        anchor("center"),
-        color(255, 255, 255),
-    ]);
+  btn.onHoverUpdate(() => {
+    const t = time() * 10;
+    btn.outline = { width: 2, color: rgb(wave(0, 255, t), wave(0, 255, t + 2), wave(0, 255, t + 4)) };
+    // btn.scale = vec2(1.2);
+    setCursor("pointer");
+});
 
-    btn.onHoverUpdate(() => {
-      const t = time() * 10;
-      btn.outline = { width: 2, color: rgb(wave(0, 255, t), wave(0, 255, t + 2), wave(0, 255, t + 4)) };
-      // btn.scale = vec2(1.2);
-      setCursor("pointer");
+  btn.onHoverEnd(() => {
+      // btn.scale = vec2(1);
+      btn.outline = { width: 2, color: rgb(...SNYK_COLOR_PURPLE) };
   });
 
-    btn.onHoverEnd(() => {
-        // btn.scale = vec2(1);
-        btn.outline = { width: 2, color: rgb(...SNYK_COLOR_PURPLE) };
-    });
+  btn.onClick(startGame);
 
-    btn.onClick(startGame);
+})
 
-  })
-
-  onKeyPress('space', () => {
-    startGame();
-  })
+onKeyPress('space', () => {
+  startGame();
 })
 
 function startGame() {
