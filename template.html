@@ -1,67 +1,108 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>VulnVortex by Snyk</title>
-	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <head>
+    <title>VulnVortex by Snyk</title>
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@snyksec" />
-  <meta name="twitter:title" content="Vuln Vortex" />
-  <meta name="twitter:description" content="Can you escape all the vulnerable npm packages? Try your luck with Vuln Vortex" />
-  <meta name="twitter:image" content="https://vulnvortex.com//images/vuln-vortex-logo-og-website.png" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X9SH3KP7B4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-X9SH3KP7B4");
+    </script>
 
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Vuln Vortex" />
-  <meta property="og:description" content="Can you escape all the vulnerable npm packages? Try your luck with Vuln Vortex" />
-  <meta property="og:url" content="https://vulnvortex.com/" />
-  <meta property="og:image" content="https://vulnvortex.com//images/vuln-vortex-logo-og-website.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@snyksec" />
+    <meta name="twitter:title" content="Vuln Vortex" />
+    <meta
+      name="twitter:description"
+      content="Can you escape all the vulnerable npm packages? Try your luck with Vuln Vortex"
+    />
+    <meta
+      name="twitter:image"
+      content="https://vulnvortex.com//images/vuln-vortex-logo-og-website.png"
+    />
 
-	<style>
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background-color: #09052D;
-    }
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Vuln Vortex" />
+    <meta
+      property="og:description"
+      content="Can you escape all the vulnerable npm packages? Try your luck with Vuln Vortex"
+    />
+    <meta property="og:url" content="https://vulnvortex.com/" />
+    <meta
+      property="og:image"
+      content="https://vulnvortex.com//images/vuln-vortex-logo-og-website.png"
+    />
 
-    footer {
-      margin-top: auto;
-    }
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+    ></script>
 
-    .title {
-      color: #ffffff;
-    }
+    <style>
+      body {
+        background-color: #09052d;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-    .canvas-holder {
-      background-color: #09052D;
-      width: 100%; 
-      text-align:center; 
-      margin: auto; 
-    }
-	</style>
-</head>
+      .canvas-holder {
+        background-color: #09052d;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+      }
 
-<body>
+      #game {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
 
-  <section class="section m-0 p-0">
-    
-    <div class="columns">
-      <div class="column">
+      #game:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+         /* Adjust the glow intensity */
+        box-shadow: 0 0 20px rgba(255, 1 255, 255, 0.2);
+         /* Add a slight blur effect */
+        filter: blur(5px);
+      }
+    </style>
+  </head>
 
-        <div class="canvas-holder">
-          <canvas id="game"></canvas>
+  <body>
+    <section class="section m-0 p-0">
+      <div class="columns">
+        <div class="column">
+          <div class="canvas-holder">
+            <canvas id="game"></canvas>
+          </div>
         </div>
-        
       </div>
-    </div>
+    </section>
 
-  </section>
-
-{{kaboom}}
-</body>
-
+    {{kaboom}}
+  </body>
 </html>
