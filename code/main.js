@@ -328,6 +328,10 @@ scene("game", () => {
   //   }
   // });
 
+  player.onGround(() => {
+    player.play('run')
+  });
+
   onDraw("player", () => {
     if (player.pos.x <0) {
       player.moveTo(0, player.pos.y)
@@ -355,14 +359,6 @@ scene("game", () => {
 
   onKeyPress('left', () => {
     player.flipX = false
-  })
-
-  onKeyRelease('left', () => {
-    player.play('run')
-  })
-
-  onKeyRelease('right', () => {
-    player.play('run')
   })
 
   onKeyDown('right', () => {
