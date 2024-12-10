@@ -77,6 +77,18 @@ function buildGame() {
 // server stuff
 app.use(express.json({ strict: false }));
 
+app.get('/intro', (req, res) => {
+  res.redirect('/');
+});
+
+app.get('/game', (req, res) => {
+  res.redirect('/');
+});
+
+app.get('/game-over', (req, res) => {
+  res.redirect('/');
+});
+
 app.get("/", (req, res) => {
   err = null;
   buildGame();
@@ -148,7 +160,7 @@ app.use("/sounds", express.static("sounds"));
 app.use("/code", express.static("code"));
 app.use("/dist", express.static("dist"));
 app.use("/fonts", express.static("fonts"));
-app.use(csurf({ cookie: true }));
+// app.use(csurf({ cookie: true }));
 
 server.listen(port);
 

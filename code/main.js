@@ -260,6 +260,8 @@ function getPackageRandomSize() {
 }
 
 scene("game", () => {
+  history.pushState({ scene: 'game' }, 'Vuln Vortex', '/game')
+
   gameMusicIntro.stop()
 
   let SPAWN_PACKAGES_TOP_SPEED = 3.5
@@ -671,6 +673,8 @@ scene("game", () => {
 }) //end game scene
 
 scene("lose", ({packageInfo}) => {
+  history.pushState({ scene: 'lose' }, 'Vuln Vortex', '/game-over')
+
   gameMusic.stop()
   gameMusicIntro.play()
   
@@ -838,6 +842,7 @@ scene("lose", ({packageInfo}) => {
 })
 
 scene('credits-0', () => {
+  history.pushState({ scene: 'credits-0' }, 'Vuln Vortex', '/intro')
 
   // add Snyk background
   add([
