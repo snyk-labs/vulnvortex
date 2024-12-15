@@ -267,6 +267,12 @@ function getPackageRandomSize() {
 scene("game", () => {
   history.pushState({ scene: 'game' }, 'Vuln Vortex', '/game?' + getQueryParams())
 
+  window.dataLayer.push({
+    'page_view': {
+      'page_name': 'game'
+    }
+  });
+
   gameMusicIntro.stop()
 
   let SPAWN_PACKAGES_TOP_SPEED = 3.5
@@ -680,6 +686,13 @@ scene("game", () => {
 scene("lose", ({packageInfo}) => {
   history.pushState({ scene: 'lose' }, 'Vuln Vortex', '/game-over?' + getQueryParams())
 
+
+  window.dataLayer.push({
+    'page_view': {
+      'page_name': 'game-over'
+    }
+  });
+
   gameMusic.stop()
   gameMusicIntro.play()
   
@@ -848,6 +861,12 @@ scene("lose", ({packageInfo}) => {
 
 scene('credits-0', () => {
   history.pushState({ scene: 'credits-0' }, 'Vuln Vortex', '/intro?' + getQueryParams())
+
+  window.dataLayer.push({
+    'page_view': {
+      'page_name': 'intro'
+    }
+  });
 
   // add Snyk background
   add([
