@@ -77,16 +77,53 @@ function buildGame() {
 // server stuff
 app.use(express.json({ strict: false }));
 
-app.get('/intro', (req, res) => {
-  res.redirect('/');
+// middleware function to preserve any query parameters
+// used for utm tracking: utm_source utm_medium and utm_campaign
+// and re-add them to redirects
+function preserveQueryParams(req, res, next) {
+  const query = req.query;
+
+  // if there are no query params, skip
+  if (Object.keys(query).length === 0) {
+    return next();
+  }
+
+  let queryParams = new URLSearchParams()
+
+  const queryParamsList = ['utm_source', 'utm_medium', 'utm_campaign'];
+  for (const param of queryParamsList) {
+    if (query[param]) {
+      queryParams.append(param, query[param]);
+    }
+  }
+  
+  const queryString = queryParams.toString();
+  req.preserveQueryParams = queryString;
+  next();
+}
+
+app.use(preserveQueryParams);
+
+function redirectHomeWithQueryParams(req, res, next) {
+  if (req.preserveQueryParams) {
+    const redirectUrl = '/?' + req.preserveQueryParams
+    res.redirect(redirectUrl);
+  }
+
+  next();
+}
+
+
+app.get('/intro', (req, res, next) => {
+  return redirectHomeWithQueryParams(req, res, next);
 });
 
-app.get('/game', (req, res) => {
-  res.redirect('/');
+app.get('/game', (req, res, next) => {
+  return redirectHomeWithQueryParams(req, res, next);
 });
 
-app.get('/game-over', (req, res) => {
-  res.redirect('/');
+app.get('/game-over', (req, res, next) => {
+  return redirectHomeWithQueryParams(req, res, next);
 });
 
 app.get("/", (req, res) => {

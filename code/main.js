@@ -1,6 +1,11 @@
 import kaplay from "kaplay";
 import "kaplay/global";
 
+function getQueryParams() {
+  const queryParams = new URLSearchParams(window.location.search);
+  return queryParams.toString();
+}
+
 // Set high score before the game run loop starts
 let highScore = localStorage.getItem("highScore") || 0
 localStorage.setItem("highScore", highScore)
@@ -260,7 +265,7 @@ function getPackageRandomSize() {
 }
 
 scene("game", () => {
-  history.pushState({ scene: 'game' }, 'Vuln Vortex', '/game')
+  history.pushState({ scene: 'game' }, 'Vuln Vortex', '/game?' + getQueryParams())
 
   gameMusicIntro.stop()
 
@@ -673,7 +678,7 @@ scene("game", () => {
 }) //end game scene
 
 scene("lose", ({packageInfo}) => {
-  history.pushState({ scene: 'lose' }, 'Vuln Vortex', '/game-over')
+  history.pushState({ scene: 'lose' }, 'Vuln Vortex', '/game-over?' + getQueryParams())
 
   gameMusic.stop()
   gameMusicIntro.play()
@@ -842,7 +847,7 @@ scene("lose", ({packageInfo}) => {
 })
 
 scene('credits-0', () => {
-  history.pushState({ scene: 'credits-0' }, 'Vuln Vortex', '/intro')
+  history.pushState({ scene: 'credits-0' }, 'Vuln Vortex', '/intro?' + getQueryParams())
 
   // add Snyk background
   add([
