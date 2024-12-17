@@ -1,0 +1,7 @@
+{
+    "redirects": [
+      { "source": "/intro", "destination": "/", "permanent": false},
+      { "source": "/game", "destination": "/", "permanent": false},
+      { "source": "/game-over", "destination": "/", "permanent": false}
+    ]
+  }
