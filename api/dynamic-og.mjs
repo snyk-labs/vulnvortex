@@ -6,8 +6,10 @@ import opentype from "opentype.js";
 const svgFile = path.join(process.cwd(), "api/_share-card.svg");
 const ShareCardSVG = readFileSync(svgFile, "utf8");
 
+const fontFile = path.join(process.cwd(), "fonts/Jersey10-Regular.ttf");
+
 function textToPath(text, x, y, fontSize) {
-  const font = opentype.loadSync("./fonts/Jersey10-Regular.ttf"); // Load your font file
+  const font = opentype.loadSync(fontFile);
   const path = font.getPath(text, x, y, fontSize);
   return path.toSVG();
 }
