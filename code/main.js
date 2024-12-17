@@ -772,7 +772,7 @@ scene("lose", ({packageInfo}) => {
   ])
 
   btnShareLinkedIn.onClick(() => {
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https://www.vulnvortex.com/api/invite?score=${getQueryParams(score)}`, '_blank');
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https://www.vulnvortex.com/api/invite?${getQueryParams(score)}`, '_blank');
   });
 
   const btnShareTwitter = add([
@@ -783,7 +783,7 @@ scene("lose", ({packageInfo}) => {
   ])
 
   btnShareTwitter.onClick(() => {
-    window.open(`https://twitter.com/intent/tweet?text=I%20just%20scored%20${score}%20on%20Vuln%20Vortex%20game%20by%20@SnykSec%20%23vulnvortex%20%23snyk https://www.vulnvortex.com/api/invite?score=${getQueryParams(score)}`, '_blank');
+    window.open(`https://twitter.com/intent/tweet?text=I%20just%20scored%20${score}%20on%20Vuln%20Vortex%20game%20by%20@SnykSec%20%23vulnvortex%20%23snyk https://www.vulnvortex.com/api/invite?${getQueryParams(score)}`, '_blank');
   });
 
   add([
