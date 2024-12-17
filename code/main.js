@@ -772,7 +772,8 @@ scene("lose", ({packageInfo}) => {
   ])
 
   btnShareLinkedIn.onClick(() => {
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https://www.vulnvortex.com/api/invite?${getQueryParams(score)}`, '_blank');
+    const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=https://www.vulnvortex.com/api/invite${encodeURIComponent(`?${getQueryParams(score)}`)}`
+    window.open(linkedInShareUrl, '_blank');
   });
 
   const btnShareTwitter = add([
