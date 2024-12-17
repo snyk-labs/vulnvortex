@@ -197,6 +197,7 @@ app.use("/sounds", express.static("sounds"));
 app.use("/code", express.static("code"));
 app.use("/dist", express.static("dist"));
 app.use("/fonts", express.static("fonts"));
+app.use("/images", express.static("images"));
 // app.use(csurf({ cookie: true }));
 
 server.listen(port);

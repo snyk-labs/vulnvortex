@@ -85,6 +85,62 @@
          /* Add a slight blur effect */
         filter: blur(5px);
       }
+
+
+      nav {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px; /* Add padding for spacing */
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .logo {
+            width: 100px; /* Adjust width as needed */
+        }
+
+        .button-container {
+            display: flex;
+        }
+
+        .button {
+            background-color: #145deb; /* Blue color */
+            color: white;
+            line-height: 1.5;
+            padding: 10px 20px;
+            border: none;
+            border-color: #145deb;
+            
+            cursor: pointer;
+            margin-left: 10px; /* Add spacing between buttons */
+
+            font-family: Roboto, sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: .25rem;
+            letter-spacing: .005rem;
+
+        }
+
+        .button-secondary {
+            background-color: rgba(20,93,235,.1); /* Blue color */
+            color: #145deb;
+            padding: 10px 20px;
+            line-height: 1.5;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(20,93,235,.5);
+            cursor: pointer;
+            margin-left: 10px; /* Add spacing between buttons */
+
+            font-family: Roboto, sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: .25rem;
+            letter-spacing: .005rem;
+        }
     </style>
   </head>
 
@@ -93,6 +149,22 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8QMQW9"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
+
+      <nav>
+        <img src="/images/snyk-default-solid.svg" alt="Snyk Logo" class="logo">
+        <div class="button-container">
+            <button class="button-secondary">
+              <a href="https://app.snyk.io/login">
+                Sign Up
+              </a>
+            </button>
+            <button class="button">
+              <a href="https://snyk.io/schedule-a-demo/">
+                Book a live demo
+              </a>
+            </button>
+        </div>
+    </nav>
 
     <section class="section m-0 p-0">
       <div class="columns">
@@ -104,12 +176,12 @@
       </div>
     </section>
 
-    <script>
+    <!-- <script>
       setTimeout(() => {
         const url = new URL(window.location.href);
         window.location.href = url.origin + '/' + url.search;
       }, 1000);      
-    </script>
+    </script> -->
 
   </body>
 </html>
