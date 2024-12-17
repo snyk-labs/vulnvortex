@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 
-const htmlTemplate = readFileSync("./api/_invite.html", "utf8");
+const htmlTemplate = readFileSync(`${import.meta.dirname}/_invite.html`, "utf8");
 
 export default function handler(request, response) {
   const { query } = request;
