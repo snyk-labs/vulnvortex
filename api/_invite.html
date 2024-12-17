@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T8QMQW9');</script>
+    <!-- End Google Tag Manager -->
+
+    <title>VulnVortex by Snyk</title>
+
+    <!-- CMP code -->
+    <script id="usercentrics-cmp" 
+      src="https://app.usercentrics.eu/browser-ui/latest/bundle.js"
+      data-ruleset-id="XF1swFzzASeKmr" async>
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@snyksec" />
+    <meta name="twitter:title" content="Vuln Vortex" />
+    <meta
+      name="twitter:description"
+      content="Can you escape all the vulnerable npm packages? Try your luck with Vuln Vortex"
+    />
+    <meta
+      name="twitter:image"
+      content="https://vulnvortex.com/api/dynamic-og?score=__SCORE__"
+    />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Vuln Vortex" />
+    <meta
+      property="og:description"
+      content="Can you escape all the vulnerable npm packages? Try your luck with Vuln Vortex"
+    />
+    <meta property="og:url" content="https://vulnvortex.com/" />
+    <meta
+      property="og:image"
+      content="https://vulnvortex.com/api/dynamic-og?score=__SCORE__"
+    />
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+    ></script>
+
+    <style>
+      body {
+        background-color: #09052d;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .canvas-holder {
+        background-color: #09052d;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+      }
+
+      #game {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      #game:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+         /* Adjust the glow intensity */
+        box-shadow: 0 0 20px rgba(255, 1 255, 255, 0.2);
+         /* Add a slight blur effect */
+        filter: blur(5px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8QMQW9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+
+    <section class="section m-0 p-0">
+      <div class="columns">
+        <div class="column">
+          <div class="canvas-holder">
+            <canvas id="game"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      setTimeout(() => {
+        const url = new URL(window.location.href);
+        window.location.href = url.origin + '/' + url.search;
+      }, 1000);      
+    </script>
+
+  </body>
+</html>
