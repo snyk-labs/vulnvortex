@@ -932,6 +932,7 @@ scene('credits-0', () => {
   });
 
   btn.onClick(startGame);
+  onKeyPress('space', startGame);
 
 })
 
