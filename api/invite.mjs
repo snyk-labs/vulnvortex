@@ -1,6 +1,8 @@
 import { readFileSync } from "fs";
+import path from "path";
 
-const htmlTemplate = readFileSync(`${import.meta.dirname}/_invite.html`, "utf8");
+const inviteHtmlFile = path.join(process.cwd(), "api/_invite.html");
+const htmlTemplate = readFileSync(inviteHtmlFile, "utf8");
 
 export default function handler(request, response) {
   const { query } = request;

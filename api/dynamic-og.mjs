@@ -1,8 +1,10 @@
 import { readFileSync } from "fs";
+import path from 'path';
 import sharp from "sharp";
 import opentype from "opentype.js";
 
-const ShareCardSVG = readFileSync(`${import.meta.dirname}/_share-card.svg`, "utf8");
+const svgFile = path.join(process.cwd(), "api/_share-card.svg");
+const ShareCardSVG = readFileSync(svgFile, "utf8");
 
 function textToPath(text, x, y, fontSize) {
   const font = opentype.loadSync("./fonts/Jersey10-Regular.ttf"); // Load your font file
