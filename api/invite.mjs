@@ -10,7 +10,7 @@ export default function handler(request, response) {
     score = 0;
   }
 
-  const htmlString = htmlTemplate.replace("__SCORE__", score);
+  const htmlString = htmlTemplate.replaceAll("__SCORE__", score);
 
   response.setHeader("Content-Type", "text/html; charset=utf-8");
   return response.status(200).send(htmlString);
