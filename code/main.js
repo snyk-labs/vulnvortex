@@ -77,8 +77,8 @@ loadSound("soundItem2", "sounds/mixkit-fairy-teleport-868.wav");
 loadSound("soundItem3", "sounds/mixkit-magic-sparkle-whoosh-2350.wav");
 loadSound("game-background-music2", "sounds/game-background-music2.mp3");
 loadSound("game-nonplay", "sounds/deep-ambient-version-60s-9889.mp3");
-const gameMusic = play('game-background-music2', {loop: true, volume: 0.6})
-const soundThunder = play('soundThunder', {loop: false, volume: 0.9})
+const gameMusic = play('game-background-music2', {loop: true, volume: 0.3})
+const soundThunder = play('soundThunder', {loop: false, volume: 0.6})
 
 let gameMusicIntro
 
@@ -932,6 +932,7 @@ scene('credits-0', () => {
   });
 
   btn.onClick(startGame);
+  onKeyPress('space', startGame);
 
 })
 
@@ -940,7 +941,7 @@ onKeyPress('space', () => {
 })
 
 function startGame() {
-  gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.7})
+  gameMusicIntro = play('game-nonplay', {loop: true, volume: 0.3})
   go('game');
 }
 

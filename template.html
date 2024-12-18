@@ -70,6 +70,8 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         border: 2px solid rgba(255, 255, 255, 0.2);
+        cursor: not-allowed;
+        pointer-events: none;
       }
 
       #game:after {
@@ -179,5 +181,28 @@
     </section>
 
     {{kaboom}}
+    <script>
+      let enableGame = () => {
+        document.getElementById("game").style.cursor = "auto";
+        document.getElementById("game").style.pointerEvents = "auto";
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          if (!localStorage.getItem("uc_user_interaction")) {
+            enableGame();
+          }
+        }, 2000);
+        if (localStorage.getItem("uc_user_interaction") === "true") {
+          enableGame();
+        }
+        document.addEventListener("click", function (e) {
+          if (e.target.id === "usercentrics-root") {
+            enableGame();
+            // focus on the game
+            document.getElementById("game").focus();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

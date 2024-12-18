@@ -1,6 +1,6 @@
 # About
 
-Dependency Frost is an educational platformer game built with the JavaScript gaming framework Kaboom [kaboom](https://kaboomjs.com) to promote awareness of security in open source dependencies
+Dependency Frost is an educational platformer game originally built with the JavaScript gaming framework Kaboom [kaboom](https://kaboomjs.com) to promote awareness of security in open source dependencies. Kaboom is no longer maintained, and the game has now been migrated to [kaplay](https://kaplayjs.com/)
 
 Can you escape all the vulnerable npm packages?
 
@@ -15,8 +15,7 @@ Dependency Frost features a collection of media assets that helped build the gam
 - Graphics from https://opengameart.org/content/dog-run-stand-pee-6frames-46x27
 - Music from mixkit: https://mixkit.co/free-stock-music
 
-Many thanks to the maintainers and developers of the Kaboom JavaScript gaming library:
-![kaboom](learn/kaboom.png)
+Many thanks to the developers of the Kaboom JavaScript gaming library ![kaboom](learn/kaboom.png) and to the developers and maintainers of its succesor, the Kaplay Javascript gaming library.
 
 # Author
 
