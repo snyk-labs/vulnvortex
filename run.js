@@ -126,12 +126,17 @@ app.get('/game-over', (req, res, next) => {
   return redirectHomeWithQueryParams(req, res, next);
 });
 
-app.get("/", (req, res) => {
+app.get("/main", (req, res) => {
   err = null;
   buildGame();
   res.sendFile(__dirname + "/dist/index.html");
   render();
 });
+
+app.get("/", (req, res) => {
+  res.redirect("/crawl/crawl.html");
+});
+
 
 app.post("/error", (req, res) => {
   err = req.body;
@@ -198,6 +203,8 @@ app.use("/code", express.static("code"));
 app.use("/dist", express.static("dist"));
 app.use("/fonts", express.static("fonts"));
 app.use("/images", express.static("images"));
+app.use("/styles", express.static("styles"));
+app.use("/crawl", express.static("crawl"));
 // app.use(csurf({ cookie: true }));
 
 server.listen(port);
