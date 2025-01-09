@@ -37,6 +37,7 @@ loadSprite("background", "sprites/bg-snyk-terrain.png")
 
 loadSprite('share-linkedin', 'sprites/8bit-li.png')
 loadSprite('share-twitter', 'sprites/8bit-tw.png')
+loadSprite('share-bluesky', 'sprites/8bit-bs.svg')
 
 loadSprite("background-menu", "sprites/bg-snyk-menu.png")
 
@@ -782,6 +783,17 @@ scene("lose", ({packageInfo}) => {
 
   btnShareTwitter.onClick(() => {
     window.open(`https://twitter.com/intent/tweet?text=I%20just%20scored%20${score}%20on%20Vuln%20Vortex%20game%20by%20@SnykSec%20%23vulnvortex%20%23snyk https://www.vulnvortex.com/api/invite?${getQueryParams(score)}`, '_blank');
+  });
+
+  const btnShareBluesky = add([
+    pos(XPosStart + 180, YPosStartText + 133),
+    sprite("share-bluesky"),
+    area(),
+    scale(0.8)
+  ])
+
+  btnShareBluesky.onClick(() => {
+    window.open(`https://bsky.app/intent/compose?text=I%20just%20scored%20${score}%20on%20Vuln%20Vortex%20game%20by%20@SnykSec%20%23vulnvortex%20%23snyk%20https://www.vulnvortex.com/api/invite?${getQueryParams(score)}`, '_blank');
   });
 
   add([
