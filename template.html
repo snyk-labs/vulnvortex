@@ -2,16 +2,29 @@
 <html>
   <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T8QMQW9');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-T8QMQW9");
+    </script>
     <!-- End Google Tag Manager -->
 
     <title>VulnVortex by Snyk</title>
 
     <!-- CMP code -->
-    <script id="usercentrics-cmp" 
+    <script
+      id="usercentrics-cmp"
       src="https://app.usercentrics.eu/browser-ui/latest/bundle.js"
-      data-ruleset-id="XF1swFzzASeKmr" async>
-    </script>
+      data-ruleset-id="XF1swFzzASeKmr"
+      async
+    ></script>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -82,92 +95,89 @@
         width: 100%;
         height: 100%;
         border-radius: inherit;
-         /* Adjust the glow intensity */
+        /* Adjust the glow intensity */
         box-shadow: 0 0 20px rgba(255, 1 255, 255, 0.2);
-         /* Add a slight blur effect */
+        /* Add a slight blur effect */
         filter: blur(5px);
       }
 
-
       nav {
-            /* background-color: white; */
-            background-color: rgba(3,3,40,.8);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px; /* Add padding for spacing */
-            padding-left: 25px;
-            padding-right: 25px;
-        }
+        /* background-color: white; */
+        background-color: rgba(3, 3, 40, 0.8);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px; /* Add padding for spacing */
+        padding-left: 25px;
+        padding-right: 25px;
+      }
 
-        .logo {
-            width: 100px; /* Adjust width as needed */
-        }
+      .logo {
+        width: 100px; /* Adjust width as needed */
+      }
 
-        .button-container {
-            display: flex;
-        }
+      .button-container {
+        display: flex;
+      }
 
-        .button {
-            background-color: rgb(62, 162, 255); /* Blue color */
-            color: rgb(3, 3, 40);
-            line-height: 1.5;
-            padding: 10px 20px;
-            border: none;
-            border-color: #145deb;
-            
-            cursor: pointer;
-            margin-left: 10px; /* Add spacing between buttons */
+      .button {
+        background-color: rgb(62, 162, 255); /* Blue color */
+        color: rgb(3, 3, 40);
+        line-height: 1.5;
+        padding: 10px 20px;
+        border: none;
+        border-color: #145deb;
 
-            font-family: Roboto, sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: .25rem;
-            letter-spacing: .005rem;
+        cursor: pointer;
+        margin-left: 10px; /* Add spacing between buttons */
 
-        }
+        font-family: Roboto, sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 0.25rem;
+        letter-spacing: 0.005rem;
+      }
 
-        .button-secondary {
-          background-color: rgb(62, 162, 255); /* Blue color */
-            color: rgb(3, 3, 40);
-            line-height: 1.5;
-            padding: 10px 20px;
-            border: none;
-            border-color: #145deb;
-            
-            cursor: pointer;
-            margin-left: 10px; /* Add spacing between buttons */
+      .button-secondary {
+        background-color: rgb(62, 162, 255); /* Blue color */
+        color: rgb(3, 3, 40);
+        line-height: 1.5;
+        padding: 10px 20px;
+        border: none;
+        border-color: #145deb;
 
-            font-family: Roboto, sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: .25rem;
-            letter-spacing: .005rem;
-        }
+        cursor: pointer;
+        margin-left: 10px; /* Add spacing between buttons */
+
+        font-family: Roboto, sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 0.25rem;
+        letter-spacing: 0.005rem;
+      }
     </style>
   </head>
 
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8QMQW9"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T8QMQW9"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-
-      <nav>
-        <img src="/images/snyk-default-solid.svg" alt="Snyk Logo" class="logo">
-        <div class="button-container">
-          <button class="button-secondary">
-            <a href="https://app.snyk.io/login" style="text-decoration: none; color: inherit;">
-              Sign up
-            </a>
-          </button>
-          <button class="button">
-            <a href="https://snyk.io/schedule-a-demo/" style="text-decoration: none; color: inherit;">
-              Book a live demo
-            </a>
-          </button>
-        </div>
+    <nav>
+      <img src="/images/snyk-default-solid.svg" alt="Snyk Logo" class="logo" />
+      <div class="button-container">
+        <button class="button-secondary" id="cta-button-signup">Sign up</button>
+        <button class="button" id="cta-button-live-demo">
+          Book a live demo
+        </button>
+      </div>
     </nav>
 
     <section class="section m-0 p-0">
@@ -185,8 +195,51 @@
       let enableGame = () => {
         document.getElementById("game").style.cursor = "auto";
         document.getElementById("game").style.pointerEvents = "auto";
-      }
+      };
       document.addEventListener("DOMContentLoaded", function () {
+        const url = new URL(window.location.href);
+        const pageName = url.pathname.split("/").pop() || "intro";
+
+        document
+          .getElementById("cta-button-signup")
+          .addEventListener("click", function () {
+            window.dataLayer.push({
+              cta_location: "Header",
+              cta_name: "Sign up",
+              cta_type: "Outbound_link",
+              event: "cta_click",
+              link_url: "https://app.snyk.io/login",
+              outbound: "yes",
+              page_category: pageName,
+              page_name: pageName,
+              page_type: pageName,
+              path: url.pathname,
+              referrer: document.referrer,
+              site_domain: url.hostname,
+            });
+            window.location.href = "https://app.snyk.io/login";
+          });
+
+        document
+          .getElementById("cta-button-live-demo")
+          .addEventListener("click", function () {
+            window.dataLayer.push({
+              cta_location: "Header",
+              cta_name: "Book a live demo",
+              cta_type: "Outbound_link",
+              event: "cta_click",
+              link_url: "https://snyk.io/demo",
+              outbound: "yes",
+              page_category: pageName,
+              page_name: pageName,
+              page_type: pageName,
+              path: url.pathname,
+              referrer: document.referrer,
+              site_domain: url.hostname,
+            });
+            window.location.href = "https://snyk.io/demo";
+          });
+
         setTimeout(() => {
           if (!localStorage.getItem("uc_user_interaction")) {
             enableGame();
