@@ -273,12 +273,20 @@ function getPackageRandomSize() {
 }
 
 scene("game", () => {
+  let pageName = 'game';
   history.pushState({ scene: 'game' }, 'Vuln Vortex', '/game?' + getQueryParams())
-
+  const url = new URL(window.location.href)
   window.dataLayer.push({
-    "event": "page_view",
-    "page_name": 'game'
-  })
+    'event': 'page_view',
+    'page_category': pageName,
+    'page_name': pageName,
+    'page_type': pageName,
+    'path': url.pathname,
+    'referrer': document.referrer,
+    'site_domain': url.hostname,
+    'template_name': 'snyk.io',
+    'url': url.href,
+  });
 
   gameMusicIntro.stop()
 
@@ -669,8 +677,6 @@ scene("game", () => {
       { packageInfo: randomPackage },
     ])
 
-    
-    
     add([
       text(randomPackage.name, { size: '22', font: 'jersey' }),
       move(LEFT, 240),
@@ -691,12 +697,20 @@ scene("game", () => {
 }) //end game scene
 
 scene("lose", ({packageInfo}) => {
+  let pageName = 'game-over';
   history.pushState({ scene: 'lose' }, 'Vuln Vortex', '/game-over?' + getQueryParams())
-
+  const url = new URL(window.location.href)
   window.dataLayer.push({
-    "event": "page_view",
-    "page_name": 'game-over'
-  })
+    'event': 'page_view',
+    'page_category': pageName,
+    'page_name': pageName,
+    'page_type': pageName,
+    'path': url.pathname,
+    'referrer': document.referrer,
+    'site_domain': url.hostname,
+    'template_name': 'snyk.io',
+    'url': url.href,
+  });
 
   gameMusic.stop()
   gameMusicIntro.play()
@@ -877,12 +891,20 @@ scene("lose", ({packageInfo}) => {
 })
 
 scene('credits-0', () => {
+  let pageName = 'intro';
   history.pushState({ scene: 'credits-0' }, 'Vuln Vortex', '/intro?' + getQueryParams())
-
+  const url = new URL(window.location.href)
   window.dataLayer.push({
-    "event": "page_view",
-    "page_name": 'intro'
-  })
+    'event': 'page_view',
+    'page_category': pageName,
+    'page_name': pageName,
+    'page_type': pageName,
+    'path': url.pathname,
+    'referrer': document.referrer,
+    'site_domain': url.hostname,
+    'template_name': 'snyk.io',
+    'url': url.href,
+  });
 
   // add Snyk background
   add([
