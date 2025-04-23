@@ -1,3 +1,14 @@
+
+<p align="center">
+	<br>
+  <img width="320" src="https://github.com/snyk-labs/vulnvortex/raw/main/.github/badge_full.svg">
+	<br>
+	Secured by <a href="https://snyk.io/">Snyk</a>
+  <br/>
+  Maintainer or Open Source Developer? Join the free <a href="https://snyk.io/open-source/">Secure Developer Program</a>
+</p>
+
+
 # About
 
 Dependency Frost is an educational platformer game originally built with the JavaScript gaming framework Kaboom [kaboom](https://kaboomjs.com) to promote awareness of security in open source dependencies. Kaboom is no longer maintained, and the game has now been migrated to [kaplay](https://kaplayjs.com/)
