@@ -886,7 +886,7 @@ scene("lose", ({packageInfo}) => {
 
   btnSeeVulnerability.onClick(() => window.open(vulnURL, '_blank'));
 
-  onKeyPress('space', restartGame);
+  setTimeout(() => onKeyPress('space', restartGame), 5000);
 
 })
 
