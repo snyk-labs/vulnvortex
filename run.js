@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const esbuild = require("esbuild");
 const express = require("express");
-const csurf = require("csurf");
+const rateLimit = require("express-rate-limit");
 const ws = require("ws");
 const http = require("http");
 const Database = require("@replit/database");
@@ -113,6 +113,15 @@ function redirectHomeWithQueryParams(req, res, next) {
   next();
 }
 
+const limiter = rateLimit({
+  windowMs: parseInt(process.env.WINDOW_MS, 10),
+  max: parseInt(process.env.MAX_IP_REQUESTS, 10),
+  delayMs: parseInt(process.env.DELAY_MS, 10),
+  headers: true
+});
+ 
+app.use(limiter);
+
 
 app.get('/intro', (req, res, next) => {
   return redirectHomeWithQueryParams(req, res, next);
@@ -198,7 +207,6 @@ app.use("/code", express.static("code"));
 app.use("/dist", express.static("dist"));
 app.use("/fonts", express.static("fonts"));
 app.use("/images", express.static("images"));
-// app.use(csurf({ cookie: true }));
 
 server.listen(port);
 
