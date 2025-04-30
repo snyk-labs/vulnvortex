@@ -820,7 +820,7 @@ scene("lose", ({packageInfo}) => {
 	])
 
   add([
-    text(`UH OH! A SECURITY VULNERABILITY TOOK YOU DOWN :(\n\nTHE SNYK VULNERABILITY DATABASE HELP TEAMS\nSTAY AHEAD OF RISKS LIKE [orange]${vulnTitle}[/orange]\nWITH REAL TIME DATA AND INSIGHTS`, {
+    text(`UH OH! A SECURITY VULNERABILITY TOOK YOU DOWN :(\n\nPRESS SPACE OR CLICK RESTART GAME TO TRY AGAIN\n\nTHE SNYK VULNERABILITY DATABASE HELP TEAMS\nSTAY AHEAD OF RISKS LIKE [orange]${vulnTitle}[/orange]\nWITH REAL TIME DATA AND INSIGHTS`, {
       font: 'jersey',
       size: 28,
       // align: 'center',
@@ -846,7 +846,7 @@ scene("lose", ({packageInfo}) => {
 
   const btnRestart = add([
     rect(150, 55, { fill: false }),
-    pos(XPosStart + 80, YPosStartText + 400),
+    pos(XPosStart + 80, YPosStartText + 432),
     area(),
     anchor("center"),
     outline(2, rgb(...SNYK_COLOR_PURPLE)),
@@ -867,7 +867,7 @@ scene("lose", ({packageInfo}) => {
 
   const btnSeeVulnerability = add([
     rect(200, 55, { fill: false }),
-    pos(XPosStart + 290, YPosStartText + 400),
+    pos(XPosStart + 290, YPosStartText + 432),
     area(),
     anchor("center"),
     outline(2, rgb(...SNYK_COLOR_ORANGE)),
@@ -886,7 +886,7 @@ scene("lose", ({packageInfo}) => {
 
   btnSeeVulnerability.onClick(() => window.open(vulnURL, '_blank'));
 
-  setTimeout(() => onKeyPress('space', restartGame), 5000);
+  setTimeout(() => onKeyPress('space', restartGame), 2000);
 
 })
 
