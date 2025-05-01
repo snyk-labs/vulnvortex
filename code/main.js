@@ -263,10 +263,32 @@ const vulnerablePackagesList = [
   }
 ]
 
-function getRandomPackageData() {
-  const maxRange = vulnerablePackagesList.length - 1
-  return vulnerablePackagesList[randi(0, maxRange)]
+function createRandomPicker(array) {
+  // Make a copy of the original array to avoid modifying it
+  const originalArray = [...array];
+  // Track items we've already picked
+  let remainingItems = [...originalArray];
+
+  return function() {
+    // If we've used all items, reset the remaining items
+    if (remainingItems.length === 0) {
+      remainingItems = [...originalArray];
+    }
+
+    // Pick a random index from the remaining items
+    const randomIndex = Math.floor(Math.random() * remainingItems.length);
+
+    // Get the item at that index
+    const selectedItem = remainingItems[randomIndex];
+
+    // Remove the selected item from remaining items
+    remainingItems.splice(randomIndex, 1);
+
+    return selectedItem;
+  };
 }
+
+const getRandomPackageData = createRandomPicker(vulnerablePackagesList);
 
 function getPackageRandomSize() {
   return rand(0.7, 1.4)
