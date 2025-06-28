@@ -6,7 +6,7 @@
     "build": "node build.js"
   },
   "dependencies": {
-    "@replit/database": "^2.0.1",
+    "@replit/database": "^2.0.5",
     "@vercel/og": "^0.6.4",
     "braces": "^3.0.3",
     "chokidar": "^3.5.2",
